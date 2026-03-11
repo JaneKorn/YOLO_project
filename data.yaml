@@ -1,0 +1,12 @@
+train: dataset/train/images
+val: dataset/valid/images
+
+nc: 3
+names: ["blue_bottle", "phone", "red_cup"]
+
+roboflow:
+  workspace: yevheniias-workspace
+  project: my-first-project-uvhj1
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/yevheniias-workspace/my-first-project-uvhj1/dataset/1

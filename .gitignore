@@ -1,0 +1,24 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# YOLO training outputs
+runs/
+
+# Model weights
+*.pt
+*.pth
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Other
+convert_images.py
+rename_dataset.py
