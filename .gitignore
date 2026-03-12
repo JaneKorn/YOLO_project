@@ -12,7 +12,6 @@ env/
 runs/
 
 # Model weights
-*.pt
 *.pth
 
 # System files
@@ -22,3 +21,5 @@ Thumbs.db
 # Other
 convert_images.py
 rename_dataset.py
+results_view.py
+yolov8*.pt

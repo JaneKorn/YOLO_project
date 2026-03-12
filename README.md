@@ -37,9 +37,10 @@ Some images contain multiple objects in the same scene to make detection more re
 
 ### Dataset size
 
-- Training images: ~150–300
-- Validation images: 44
-- Total object instances: 114
+Total dataset size: ~700 images
+
+- Training images: ~600
+- Validation images: ~100
 
 ### Dataset structure
 
@@ -103,22 +104,24 @@ Training parameters:
 
 # Results
 
-Final validation performance:
+Validation performance after training on the expanded dataset (~700 images).
+
+Metrics are reported using the best validation checkpoint (`best.pt`).
 
 | Metric    | Value     |
 | --------- | --------- |
-| Precision | 0.761     |
-| Recall    | 0.692     |
-| mAP50     | **0.731** |
-| mAP50-95  | 0.526     |
+| Precision | 0.715     |
+| Recall    | 0.715     |
+| mAP50     | **0.732** |
+| mAP50-95  | **0.562** |
 
 ### Performance per class
 
 | Class       | mAP50     |
 | ----------- | --------- |
 | red_cup     | **0.964** |
-| phone       | 0.768     |
-| blue_bottle | 0.462     |
+| phone       | **0.855** |
+| blue_bottle | 0.378     |
 
 The model performed best on **red_cup**, while **blue_bottle** showed lower accuracy due to greater visual variability.
 
@@ -152,8 +155,6 @@ Predictions include:
 
 ---
 
-## Example Predictions
-
 Example detections on unseen images.
 
 ![Detection Example](example_results/detection_1.jpg)
@@ -164,12 +165,14 @@ Example detections on unseen images.
 
 The model can also run real-time detection using a webcam.
 
+Pretrained model is available in the `models/` directory.
+
 Example script:
 
 ```python
 from ultralytics import YOLO
 
-model = YOLO("runs/detect/train/weights/best.pt")
+model = YOLO("models/best.pt")
 
 model.predict(
     source=0,
@@ -204,15 +207,18 @@ Example of real-time object detection using webcam.
 YOLO-project/
 
 dataset/
+example_results/
+models/
 test_images/
 
-training_script.py
+README.md
+data.yaml
+requirements.txt
+
 test_model.py
+training_script.py
 webcam_detection.py
 
-data.yaml
-
-runs/
 ```
 
 ---
@@ -233,16 +239,12 @@ Possible improvements include:
 
 Clone the repository:
 
-git clone https://github.com/your-username/yolo-object-detection.git
-
-cd yolo-object-detection
+```bash
+git clone https://github.com/JaneKorn/YOLO_project
+```
 
 Install dependencies:
 
+```bash
 pip install -r requirements.txt
-
-# Authors
-
-Student Deep Learning Laboratory Project
-
-Object detection system built using YOLOv8.
+```

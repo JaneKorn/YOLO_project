@@ -1,6 +1,6 @@
 from ultralytics import YOLO
 
-model = YOLO("runs/detect/train4/weights/best.pt")
+model = YOLO("models/best.pt")
 
 results = model.predict(
     source="test_images",
